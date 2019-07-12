@@ -6,3 +6,4 @@ Odczyt danych pogodowych z [weatherbit.io](https://www.weatherbit.io/) oraz dany
 * Wyświetlacz TFT 1.8" ST7735
 
 ## Zdjęcie
+![Foto](foto1.jpg)
