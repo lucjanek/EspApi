@@ -24,7 +24,7 @@ void setup()
 {
   Serial.begin(115200);
   
-  tft.initR(INITR_BLACKTAB); // Initialize the screen on a black background
+  tft.initR(INITR_BLACKTAB); // Initialize the screen with black background
   tft.setTextSize(1);
   tft.setTextColor(ST7735_BLUE);
   tft.fillScreen(ST7735_BLACK);
@@ -47,16 +47,16 @@ void loop()
   if (WiFi.status() == WL_CONNECTED) 
   {
     HTTPClient http; //Object of class HTTPClient
-    http.begin("http://api.weatherbit.io/v2.0/current?city_id=758626&lang=pl&key=0ecf8fa9112d4abf81f76225f5f987ff");
+    http.begin("http://api.weatherbit.io/v2.0/current?city_id=758626&lang=pl&key=*******************"); // weatherbit.io API key
 
     HTTPClient stan; //Object of class HTTPClient
-    stan.begin("http://groszek.ml/fe12f3382fda434c8759004694303b80/isHardwareConnected");
+    stan.begin("http://groszek.ml/*******************/isHardwareConnected"); // Blynk project API key
 
     HTTPClient temp; //Object of class HTTPClient
-    temp.begin("http://groszek.ml/fe12f3382fda434c8759004694303b80/get/v0");
+    temp.begin("http://groszek.ml/********************/get/v0"); // Blynk project API key
 
     HTTPClient humi; //Object of class HTTPClient
-    humi.begin("http://groszek.ml/fe12f3382fda434c8759004694303b80/get/v1");
+    humi.begin("http://groszek.ml/*******************/get/v1");  // Blynk project API key
     
     int httpCode = http.GET();
     stan.GET(); temp.GET(); humi.GET();
@@ -152,7 +152,7 @@ void loop()
         
       }
     }
-    http.end(); stan.end(); temp.end(); humi.end();//Close connection
+    http.end(); stan.end(); temp.end(); humi.end(); // Close connection
   }
   delay(3*60*1000);
 }
